@@ -1,0 +1,641 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Microservice Tarification :(Demandes , itinéraires)",
+    "version": "v0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8081/api",
+      "description": "Generated server url"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Tarification des Demandes",
+      "description": "Gestion des tarifications pour les demandes"
+    }
+  ],
+  "paths": {
+    "/tarification/{id}/valider": {
+      "put": {
+        "tags": [
+          "tarification-controller"
+        ],
+        "summary": "Valider une tafification par sont ID",
+        "operationId": "validerTarification",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/TarificationResponseDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tarification/{id}/paiement": {
+      "post": {
+        "tags": [
+          "tarification-controller"
+        ],
+        "summary": "Effectue le paiement d'une tarification validée",
+        "operationId": "payerTarification",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "La tarification n'est pas validée ou a expiré",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "La tarification est déjà payée",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Tarification non trouvée",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Paiement effectué avec succès",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TarificationResponseDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tarification/demandes/calculer-tarif": {
+      "post": {
+        "tags": [
+          "Tarification des Demandes"
+        ],
+        "summary": "Calcule et enregistre un tarif pour une demande avec itinéraire",
+        "operationId": "calculerTarif",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TarificationRequestDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Tarification calculé avec succès",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TarificationResponseDTO"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Données de requête invalides",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/TarificationResponseDTO"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Non authentifié",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/TarificationResponseDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tarification/calculer": {
+      "post": {
+        "tags": [
+          "tarification-controller"
+        ],
+        "summary": "Calculer une tarification à partie de demandeID et itineraireId",
+        "operationId": "calculerTarif_1",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TarificationRequestDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/TarificationResponseDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tarification/{id}": {
+      "get": {
+        "tags": [
+          "tarification-controller"
+        ],
+        "summary": "Récupérer une tarification par son ID",
+        "operationId": "getTarification",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/TarificationResponseDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tarification/demandes/{demandeId}/tarifications": {
+      "get": {
+        "tags": [
+          "Tarification des Demandes"
+        ],
+        "summary": "Récupère les tarifications d'une demande spécifique",
+        "operationId": "getTarificationsByDemande",
+        "parameters": [
+          {
+            "name": "demandeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Données de requête invalides",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TarificationResponseDTO"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Non authentifié",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TarificationResponseDTO"
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Récupérer le tarif d'une demande",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TarificationResponseDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tarification/demandes/tarification/{id}": {
+      "get": {
+        "tags": [
+          "Tarification des Demandes"
+        ],
+        "summary": "Récupère une tarification par son ID",
+        "operationId": "getTarificationById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/TarificationResponseDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tarification/demandes/avec-itineraire": {
+      "get": {
+        "tags": [
+          "Tarification des Demandes"
+        ],
+        "summary": "Récupère toutes les demandes avec leurs itinéraires",
+        "operationId": "getDemandesAvecItineraire",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DemandeWithItineraireDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "TarificationResponseDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "demandeId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "itineraireId": {
+            "type": "string"
+          },
+          "clientId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "chauffeurId": {
+            "type": "string"
+          },
+          "volume": {
+            "type": "number"
+          },
+          "poids": {
+            "type": "number"
+          },
+          "distanceKm": {
+            "type": "number",
+            "format": "double"
+          },
+          "natureMarchandise": {
+            "type": "string"
+          },
+          "fragile": {
+            "type": "boolean"
+          },
+          "temperatureRequise": {
+            "type": "string"
+          },
+          "tarifClient": {
+            "type": "number"
+          },
+          "tarifPrestataire": {
+            "type": "number"
+          },
+          "margeService": {
+            "type": "number"
+          },
+          "statut": {
+            "type": "string",
+            "enum": [
+              "EN_ATTENTE",
+              "VALIDE",
+              "REJETE",
+              "ANNULEE",
+              "EXPIRE",
+              "PAYE"
+            ]
+          },
+          "typeRoute": {
+            "type": "string",
+            "enum": [
+              "ROUTE_NATIONALE"
+            ]
+          },
+          "inclureRetour": {
+            "type": "boolean"
+          },
+          "dateCreation": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dateExpiration": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dateValidation": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "TarificationRequestDTO": {
+        "required": [
+          "demandeId",
+          "itineraireId"
+        ],
+        "type": "object",
+        "properties": {
+          "demandeId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "itineraireId": {
+            "type": "string"
+          },
+          "typeRoute": {
+            "type": "string"
+          },
+          "inclureRetour": {
+            "type": "boolean"
+          }
+        }
+      },
+      "CategorieDTO": {
+        "type": "object",
+        "properties": {
+          "idCategorie": {
+            "type": "string"
+          },
+          "nom": {
+            "type": "string"
+          },
+          "fragile": {
+            "type": "boolean"
+          },
+          "temperatureRequise": {
+            "type": "string"
+          }
+        }
+      },
+      "DemandeWithItineraireDTO": {
+        "type": "object",
+        "properties": {
+          "demandeId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "clientId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "volume": {
+            "type": "number",
+            "format": "double"
+          },
+          "poids": {
+            "type": "number",
+            "format": "double"
+          },
+          "natureMarchandise": {
+            "type": "string"
+          },
+          "dateDepart": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "villeDepart": {
+            "type": "string"
+          },
+          "villeDestination": {
+            "type": "string"
+          },
+          "statutValidation": {
+            "type": "string"
+          },
+          "itineraireAssocieId": {
+            "type": "string"
+          },
+          "distanceDemande": {
+            "type": "number",
+            "format": "double"
+          },
+          "itineraire": {
+            "$ref": "#/components/schemas/ItineraireDTO"
+          },
+          "categorie": {
+            "$ref": "#/components/schemas/CategorieDTO"
+          },
+          "itineraireExists": {
+            "type": "boolean"
+          },
+          "tarifExists": {
+            "type": "boolean"
+          },
+          "tarification": {
+            "$ref": "#/components/schemas/TarificationResponseDTO"
+          }
+        }
+      },
+      "ItineraireDTO": {
+        "type": "object",
+        "properties": {
+          "originLatitude": {
+            "type": "number",
+            "format": "double"
+          },
+          "originLongitude": {
+            "type": "number",
+            "format": "double"
+          },
+          "originAddress": {
+            "type": "string"
+          },
+          "originCity": {
+            "type": "string"
+          },
+          "destinationLatitude": {
+            "type": "number",
+            "format": "double"
+          },
+          "destinationLongitude": {
+            "type": "number",
+            "format": "double"
+          },
+          "destinationAddress": {
+            "type": "string"
+          },
+          "destinationCity": {
+            "type": "string"
+          },
+          "distanceKm": {
+            "type": "number",
+            "format": "double"
+          },
+          "durationMin": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "optimizationType": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "type": "string"
+          },
+          "calculatedBy": {
+            "type": "string"
+          },
+          "chauffeurId": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "returnDistanceKm": {
+            "type": "number",
+            "format": "double"
+          },
+          "returnDurationMin": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalDistanceKm": {
+            "type": "number",
+            "format": "double"
+          },
+          "totalDurationMin": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "includeReturn": {
+            "type": "boolean"
+          },
+          "isOptimized": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}
