@@ -7,6 +7,7 @@ import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import net.umi.tarification_itn.model.enums.*;
 
 import java.math.BigDecimal;
@@ -14,7 +15,7 @@ import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
+@AllArgsConstructor @ToString
 public class TarificationResponseDTO {
 
     private String id;

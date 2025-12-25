@@ -17,8 +17,7 @@ public class HealthController {
 
     @GetMapping("/")
     public void redirectToSwagger(HttpServletResponse response) throws IOException {
-        // Redirige directement vers Swagger UI
-        response.sendRedirect("/swagger-ui/index.html");
+        response.sendRedirect("/api-docs");
     }
 
     @GetMapping("/swagger")

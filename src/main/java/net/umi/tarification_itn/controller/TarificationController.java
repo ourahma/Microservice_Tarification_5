@@ -17,6 +17,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/tarification")
 @RequiredArgsConstructor
@@ -37,6 +39,14 @@ public class TarificationController {
         TarificationResponseDTO response = tarificationService.calculerEtEnregistrerTarif(request, token);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
+
+    @GetMapping("/all")
+    @Operation(summary = "Récupérer toutes les tarifications")
+    @PreAuthorize("hasAnyRole('CLIENT', 'ADMIN', 'PRESTATAIRE')")
+    public ResponseEntity<List<TarificationResponseDTO>> getAllTarification() {
+        List<TarificationResponseDTO> response = tarificationService.getAllTarification();
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping("/{id}")

@@ -28,11 +28,11 @@ Le service de tarification est un microservice Spring Boot qui permet de calcule
 | Environnement | URL | Description |
 |--------------|-----|-------------|
 | Local | `http://localhost:8081/api` | Développement local |
-| Serveur | `http://172.30.80.11:31022//api` | Serveur de production (remplacez VOTRE_IP) |
+| Serveur | `http://172.30.80.11:31022/api` | Serveur de production (remplacez VOTRE_IP) |
 
 ### Documentation API
-- **Swagger UI** : `http://172.30.80.11:31022/swagger-ui.html`
-- **OpenAPI JSON** : `http://172.30.80.11:31022/v3/api-docs`
+- **Swagger UI** : `http://172.30.80.11:31022/swagger`
+- **OpenAPI JSON** : `http://172.30.80.11:31022/`
 
 ## 📊 API Endpoints
 
@@ -101,8 +101,8 @@ cd Microservice_Tarification_5
 2. **Configurer la base de données**
 ```sql
 CREATE DATABASE tarification_db;
-CREATE USER tarification_user WITH PASSWORD 'votre_mot_de_passe';
-GRANT ALL PRIVILEGES ON DATABASE tarification_db TO tarification_user;
+CREATE USER user WITH PASSWORD 'password';
+GRANT ALL PRIVILEGES ON DATABASE tarification_db TO user;
 ```
 
 
@@ -173,7 +173,7 @@ curl -X POST "http://172.30.80.11:31022/api/tarification/demandes/calculer-tarif
 **Réponse réussie (201 Created) :**
 ```json
 {
-  "id": "tarif-123",
+  "id": 1,
   "demandeId": 123,
   "itineraireId": "abc-123-def",
   "clientId": 456,

@@ -6,9 +6,13 @@ import net.umi.tarification_itn.model.dto.*;
 import net.umi.tarification_itn.model.entity.Tarification;
 import net.umi.tarification_itn.model.enums.StatusTatification;
 import net.umi.tarification_itn.repository.TarificationRepository;
+import org.hibernate.service.spi.ServiceException;
+import org.springframework.dao.DataAccessException;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Collections;
 import java.util.stream.Collectors;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -91,7 +95,7 @@ public class TarificationService {
             dto.setDistanceDemande(demande.getDistanceKm());
             dto.setCategorie(demande.getCategorie());
 
-            // Vérifier si l'itinéraire existe
+
             if (demande.getItineraireAssocieId() != null) {
                 try {
                     ItineraireDTO itineraire = itineraireClientService.getItineraireById(demande.getItineraireAssocieId(), token);
@@ -120,7 +124,31 @@ public class TarificationService {
         Tarification tarification = tarificationRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Tarification non trouvée: " + id));
 
-        return mapToResponseDTO(tarification);
+        TarificationResponseDTO response = mapToResponseDTO(tarification);
+        log.info("Tarification trouvé "+response);
+        return response;
+    }
+    public List<TarificationResponseDTO> getAllTarification() {
+        try {
+            List<Tarification> tarifications = tarificationRepository.findAll();
+
+            if (tarifications == null || tarifications.isEmpty()) {
+                log.info("Aucune tarification trouvée");
+                return Collections.emptyList();
+            }
+
+            List<TarificationResponseDTO> responseDTOs = mapToResponseListDTO(tarifications);
+
+            log.debug("Récupération de {} tarifications", responseDTOs.size());
+            return responseDTOs;
+
+        } catch (DataAccessException e) {
+            log.error("Erreur d'accès aux données lors de la récupération des tarifications", e);
+            throw new ServiceException("Erreur technique lors de la récupération des données", e);
+        } catch (Exception e) {
+            log.error("Erreur inattendue lors de la récupération des tarifications", e);
+            throw new ServiceException("Erreur inattendue", e);
+        }
     }
 
     public List<TarificationResponseDTO> getTarificationsByDemandeId(Long demandeId) {
@@ -159,6 +187,16 @@ public class TarificationService {
                 tarification.getDateExpiration(),
                 tarification.getDateValidation()
         );
+    }
+
+    private List<TarificationResponseDTO> mapToResponseListDTO(List<Tarification> tarifications) {
+        if (tarifications == null || tarifications.isEmpty()) {
+            return Collections.emptyList();
+        }
+
+        return tarifications.stream()
+                .map(this::mapToResponseDTO)
+                .collect(Collectors.toList());
     }
 
     @Transactional

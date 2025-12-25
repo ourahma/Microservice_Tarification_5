@@ -1,23 +1,31 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "Microservice Tarification :(Demandes , itinéraires)",
+    "title": "OpenAPI definition",
     "version": "v0"
   },
   "servers": [
     {
-      "url": "http://localhost:8081/api",
+      "url": "http://localhost:8081",
       "description": "Generated server url"
+    },
+    {
+      "url": "http://172.30.80.11:31022/",
+      "description": "Server url"
     }
   ],
   "tags": [
     {
       "name": "Tarification des Demandes",
       "description": "Gestion des tarifications pour les demandes"
+    },
+    {
+      "name": "Authentification",
+      "description": "Gestion de l'authentification et des utilisateurs"
     }
   ],
   "paths": {
-    "/tarification/{id}/valider": {
+    "/api/tarification/{id}/valider": {
       "put": {
         "tags": [
           "tarification-controller"
@@ -48,7 +56,7 @@
         }
       }
     },
-    "/tarification/{id}/paiement": {
+    "/api/tarification/{id}/paiement": {
       "post": {
         "tags": [
           "tarification-controller"
@@ -109,7 +117,7 @@
         }
       }
     },
-    "/tarification/demandes/calculer-tarif": {
+    "/api/tarification/demandes/calculer-tarif": {
       "post": {
         "tags": [
           "Tarification des Demandes"
@@ -137,16 +145,6 @@
           "required": true
         },
         "responses": {
-          "201": {
-            "description": "Tarification calculé avec succès",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TarificationResponseDTO"
-                }
-              }
-            }
-          },
           "400": {
             "description": "Données de requête invalides",
             "content": {
@@ -166,11 +164,21 @@
                 }
               }
             }
+          },
+          "201": {
+            "description": "Tarification calculé avec succès",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TarificationResponseDTO"
+                }
+              }
+            }
           }
         }
       }
     },
-    "/tarification/calculer": {
+    "/api/tarification/calculer": {
       "post": {
         "tags": [
           "tarification-controller"
@@ -211,7 +219,123 @@
         }
       }
     },
-    "/tarification/{id}": {
+    "/api/auth/refresh": {
+      "post": {
+        "tags": [
+          "Authentification"
+        ],
+        "summary": "Rafraîchir le token JWT",
+        "operationId": "refreshToken",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshTokenRequestDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/logout": {
+      "post": {
+        "tags": [
+          "Authentification"
+        ],
+        "summary": "Déconnexion (côté client)",
+        "operationId": "logout",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/login": {
+      "post": {
+        "tags": [
+          "Authentification"
+        ],
+        "summary": "Authentification d'un utilisateur",
+        "operationId": "login",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequestDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "500": {
+            "description": "Erreur serveur",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Identifiants incorrects",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Compte désactivé ou non vérifié",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Authentification réussie",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponseDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/tarification/{id}": {
       "get": {
         "tags": [
           "tarification-controller"
@@ -242,7 +366,7 @@
         }
       }
     },
-    "/tarification/demandes/{demandeId}/tarifications": {
+    "/api/tarification/demandes/{demandeId}/tarifications": {
       "get": {
         "tags": [
           "Tarification des Demandes"
@@ -303,7 +427,7 @@
         }
       }
     },
-    "/tarification/demandes/tarification/{id}": {
+    "/api/tarification/demandes/tarification/{id}": {
       "get": {
         "tags": [
           "Tarification des Demandes"
@@ -334,7 +458,7 @@
         }
       }
     },
-    "/tarification/demandes/avec-itineraire": {
+    "/api/tarification/demandes/avec-itineraire": {
       "get": {
         "tags": [
           "Tarification des Demandes"
@@ -360,6 +484,136 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/DemandeWithItineraireDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/validate": {
+      "get": {
+        "tags": [
+          "Authentification"
+        ],
+        "summary": "Valider un token JWT",
+        "operationId": "validateToken",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/role": {
+      "get": {
+        "tags": [
+          "Authentification"
+        ],
+        "summary": "Récupérer le rôle de l'utilisateur courant",
+        "operationId": "getUserRole",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/me": {
+      "get": {
+        "tags": [
+          "Authentification"
+        ],
+        "summary": "Récupérer les informations de l'utilisateur courant",
+        "operationId": "getCurrentUser",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/check-session": {
+      "get": {
+        "tags": [
+          "Authentification"
+        ],
+        "summary": "Vérifier la session utilisateur",
+        "operationId": "checkSession",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object"
                   }
                 }
               }
@@ -472,6 +726,69 @@
           },
           "inclureRetour": {
             "type": "boolean"
+          }
+        }
+      },
+      "RefreshTokenRequestDTO": {
+        "required": [
+          "refreshToken"
+        ],
+        "type": "object",
+        "properties": {
+          "refreshToken": {
+            "type": "string"
+          }
+        }
+      },
+      "LoginRequestDTO": {
+        "required": [
+          "email",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "LoginResponseDTO": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          },
+          "refreshToken": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "username": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "fullName": {
+            "type": "string"
+          },
+          "phoneNumber": {
+            "type": "string"
+          },
+          "expiresIn": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },

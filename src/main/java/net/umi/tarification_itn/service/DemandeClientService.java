@@ -26,7 +26,7 @@ public class DemandeClientService {
 
     public List<DemandeDTO> getAllDemandes(String token) {
         log.info("Récupération de toutes les demandes");
-
+        log.info("Token : "+token);
         try{
             List<DemandeDTO> demandes = webClient.get()
                     .uri(demandeBaseUrl)
