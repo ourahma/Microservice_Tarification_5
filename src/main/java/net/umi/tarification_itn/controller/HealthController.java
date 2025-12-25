@@ -17,7 +17,7 @@ public class HealthController {
 
     @GetMapping("/")
     public void redirectToSwagger(HttpServletResponse response) throws IOException {
-        response.sendRedirect("/api-docs");
+        response.sendRedirect("/swagger");
     }
 
     @GetMapping("/swagger")

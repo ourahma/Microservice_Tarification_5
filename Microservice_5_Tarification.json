@@ -11,7 +11,7 @@
     },
     {
       "url": "http://172.30.80.11:31022/",
-      "description": "Server url"
+      "description": " server url"
     }
   ],
   "tags": [
@@ -94,22 +94,22 @@
               }
             }
           },
-          "404": {
-            "description": "Tarification non trouvée",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          },
           "200": {
             "description": "Paiement effectué avec succès",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/TarificationResponseDTO"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Tarification non trouvée",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
                 }
               }
             }
@@ -155,20 +155,20 @@
               }
             }
           },
-          "401": {
-            "description": "Non authentifié",
+          "201": {
+            "description": "Tarification calculé avec succès",
             "content": {
-              "*/*": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/TarificationResponseDTO"
                 }
               }
             }
           },
-          "201": {
-            "description": "Tarification calculé avec succès",
+          "401": {
+            "description": "Non authentifié",
             "content": {
-              "application/json": {
+              "*/*": {
                 "schema": {
                   "$ref": "#/components/schemas/TarificationResponseDTO"
                 }
@@ -484,6 +484,30 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/DemandeWithItineraireDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/tarification/all": {
+      "get": {
+        "tags": [
+          "tarification-controller"
+        ],
+        "summary": "Récupérer toutes les tarifications",
+        "operationId": "getAllTarification",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TarificationResponseDTO"
                   }
                 }
               }

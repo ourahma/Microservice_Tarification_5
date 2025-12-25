@@ -2538,3 +2538,140 @@ This generated password is for development use only. Your security configuration
 2025-12-25T13:26:46.678+01:00  INFO 8616 --- [tarification_itn] [http-nio-8081-exec-4] n.u.t.service.ItineraireClientService    : Récupération de l'itinéraire: cbf4dd3e-cd56-4480-9089-7e3a37c0193d
 2025-12-25T13:26:59.980+01:00  INFO 8616 --- [tarification_itn] [http-nio-8081-exec-7] n.u.t.s.filter.JwtAuthenticationFilter   : JWT Authentication: username = admin@gmail.com, authorities = [ROLE_ADMIN]
 2025-12-25T13:26:59.999+01:00  INFO 8616 --- [tarification_itn] [http-nio-8081-exec-5] n.u.t.s.filter.JwtAuthenticationFilter   : JWT Authentication: username = admin@gmail.com, authorities = [ROLE_ADMIN]
+2025-12-25T13:28:31.912+01:00  INFO 8616 --- [tarification_itn] [http-nio-8081-exec-1] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 621 ms
+2025-12-25T13:29:00.192+01:00  INFO 8616 --- [tarification_itn] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2025-12-25T13:29:00.229+01:00  INFO 8616 --- [tarification_itn] [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-25T13:29:00.236+01:00  INFO 8616 --- [tarification_itn] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-12-25T13:29:00.246+01:00  INFO 8616 --- [tarification_itn] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-12-25T13:29:00.390+01:00  INFO 8616 --- [tarification_itn] [restartedMain] n.u.t.TarificationItnApplication         : Starting TarificationItnApplication using Java 21.0.8 with PID 8616 (C:\Users\OURAHMA\Desktop\tarification_itn\target\classes started by OURAHMA in C:\Users\OURAHMA\Desktop\tarification_itn)
+2025-12-25T13:29:00.390+01:00  INFO 8616 --- [tarification_itn] [restartedMain] n.u.t.TarificationItnApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-12-25T13:29:01.139+01:00  INFO 8616 --- [tarification_itn] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-25T13:29:01.167+01:00  INFO 8616 --- [tarification_itn] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21 ms. Found 2 JPA repository interfaces.
+2025-12-25T13:29:01.541+01:00  INFO 8616 --- [tarification_itn] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-12-25T13:29:01.543+01:00  INFO 8616 --- [tarification_itn] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-25T13:29:01.543+01:00  INFO 8616 --- [tarification_itn] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2025-12-25T13:29:01.584+01:00  INFO 8616 --- [tarification_itn] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-25T13:29:01.584+01:00  INFO 8616 --- [tarification_itn] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1190 ms
+2025-12-25T13:29:01.895+01:00  INFO 8616 --- [tarification_itn] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-25T13:29:01.896+01:00  INFO 8616 --- [tarification_itn] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2025-12-25T13:29:01.896+01:00  INFO 8616 --- [tarification_itn] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@344809bd
+2025-12-25T13:29:01.896+01:00  INFO 8616 --- [tarification_itn] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2025-12-25T13:29:02.172+01:00  INFO 8616 --- [tarification_itn] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-25T13:29:02.689+01:00  WARN 8616 --- [tarification_itn] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-25T13:29:02.784+01:00  WARN 8616 --- [tarification_itn] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 564a7744-ca59-47e2-8929-6c22656995ee
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-12-25T13:29:02.789+01:00  INFO 8616 --- [tarification_itn] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-12-25T13:29:03.382+01:00  INFO 8616 --- [tarification_itn] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 6 endpoints beneath base path '/actuator'
+2025-12-25T13:29:04.220+01:00  INFO 8616 --- [tarification_itn] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-25T13:29:04.262+01:00  INFO 8616 --- [tarification_itn] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-12-25T13:29:04.272+01:00  INFO 8616 --- [tarification_itn] [restartedMain] n.u.t.TarificationItnApplication         : Started TarificationItnApplication in 3.936 seconds (process running for 1719.125)
+2025-12-25T13:29:04.275+01:00  INFO 8616 --- [tarification_itn] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-12-25T13:29:04.353+01:00  INFO 8616 --- [tarification_itn] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-25T13:29:04.353+01:00  INFO 8616 --- [tarification_itn] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-25T13:29:04.356+01:00  INFO 8616 --- [tarification_itn] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-12-25T13:29:05.676+01:00  INFO 8616 --- [tarification_itn] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2025-12-25T13:29:05.692+01:00  INFO 8616 --- [tarification_itn] [Thread-19] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-25T13:29:05.692+01:00  INFO 8616 --- [tarification_itn] [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2025-12-25T13:29:05.692+01:00  INFO 8616 --- [tarification_itn] [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2025-12-25T13:29:05.837+01:00  INFO 8616 --- [tarification_itn] [restartedMain] n.u.t.TarificationItnApplication         : Starting TarificationItnApplication using Java 21.0.8 with PID 8616 (C:\Users\OURAHMA\Desktop\tarification_itn\target\classes started by OURAHMA in C:\Users\OURAHMA\Desktop\tarification_itn)
+2025-12-25T13:29:05.837+01:00  INFO 8616 --- [tarification_itn] [restartedMain] n.u.t.TarificationItnApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-12-25T13:29:06.454+01:00  INFO 8616 --- [tarification_itn] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-25T13:29:06.486+01:00  INFO 8616 --- [tarification_itn] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24 ms. Found 2 JPA repository interfaces.
+2025-12-25T13:29:06.803+01:00  INFO 8616 --- [tarification_itn] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-12-25T13:29:06.819+01:00  INFO 8616 --- [tarification_itn] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-25T13:29:06.819+01:00  INFO 8616 --- [tarification_itn] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2025-12-25T13:29:06.851+01:00  INFO 8616 --- [tarification_itn] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-25T13:29:06.851+01:00  INFO 8616 --- [tarification_itn] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1000 ms
+2025-12-25T13:29:07.139+01:00  INFO 8616 --- [tarification_itn] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-25T13:29:07.139+01:00  INFO 8616 --- [tarification_itn] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2025-12-25T13:29:07.156+01:00  INFO 8616 --- [tarification_itn] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@27a6f6b3
+2025-12-25T13:29:07.156+01:00  INFO 8616 --- [tarification_itn] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2025-12-25T13:29:07.457+01:00  INFO 8616 --- [tarification_itn] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-25T13:29:07.840+01:00  WARN 8616 --- [tarification_itn] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-25T13:29:07.916+01:00  WARN 8616 --- [tarification_itn] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 5a515a53-44eb-4b51-83ae-49d42cc4e9eb
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-12-25T13:29:07.934+01:00  INFO 8616 --- [tarification_itn] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-12-25T13:29:08.521+01:00  INFO 8616 --- [tarification_itn] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 6 endpoints beneath base path '/actuator'
+2025-12-25T13:29:09.491+01:00  INFO 8616 --- [tarification_itn] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-25T13:29:09.544+01:00  INFO 8616 --- [tarification_itn] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-12-25T13:29:09.554+01:00  INFO 8616 --- [tarification_itn] [restartedMain] n.u.t.TarificationItnApplication         : Started TarificationItnApplication in 3.751 seconds (process running for 1724.418)
+2025-12-25T13:29:09.554+01:00  INFO 8616 --- [tarification_itn] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-12-25T13:29:14.028+01:00  INFO 8616 --- [tarification_itn] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-25T13:29:14.029+01:00  INFO 8616 --- [tarification_itn] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-25T13:29:14.031+01:00  INFO 8616 --- [tarification_itn] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-12-25T13:29:57.993+01:00  INFO 8616 --- [tarification_itn] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2025-12-25T13:29:58.000+01:00  INFO 8616 --- [tarification_itn] [Thread-23] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-25T13:29:58.000+01:00  INFO 8616 --- [tarification_itn] [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2025-12-25T13:29:58.008+01:00  INFO 8616 --- [tarification_itn] [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2025-12-25T13:29:58.121+01:00  INFO 8616 --- [tarification_itn] [restartedMain] n.u.t.TarificationItnApplication         : Starting TarificationItnApplication using Java 21.0.8 with PID 8616 (C:\Users\OURAHMA\Desktop\tarification_itn\target\classes started by OURAHMA in C:\Users\OURAHMA\Desktop\tarification_itn)
+2025-12-25T13:29:58.121+01:00  INFO 8616 --- [tarification_itn] [restartedMain] n.u.t.TarificationItnApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-12-25T13:29:58.670+01:00  INFO 8616 --- [tarification_itn] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-25T13:29:58.692+01:00  INFO 8616 --- [tarification_itn] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21 ms. Found 2 JPA repository interfaces.
+2025-12-25T13:29:58.953+01:00  INFO 8616 --- [tarification_itn] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-12-25T13:29:58.953+01:00  INFO 8616 --- [tarification_itn] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-25T13:29:58.953+01:00  INFO 8616 --- [tarification_itn] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2025-12-25T13:29:58.987+01:00  INFO 8616 --- [tarification_itn] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-25T13:29:58.987+01:00  INFO 8616 --- [tarification_itn] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 864 ms
+2025-12-25T13:29:59.261+01:00  INFO 8616 --- [tarification_itn] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-25T13:29:59.263+01:00  INFO 8616 --- [tarification_itn] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2025-12-25T13:29:59.265+01:00  INFO 8616 --- [tarification_itn] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1585368d
+2025-12-25T13:29:59.265+01:00  INFO 8616 --- [tarification_itn] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2025-12-25T13:29:59.424+01:00  INFO 8616 --- [tarification_itn] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-25T13:29:59.794+01:00  WARN 8616 --- [tarification_itn] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-25T13:29:59.866+01:00  WARN 8616 --- [tarification_itn] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: b7f026cb-c08a-40bb-8372-3c5ce4fe01fa
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-12-25T13:29:59.867+01:00  INFO 8616 --- [tarification_itn] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-12-25T13:30:00.417+01:00  INFO 8616 --- [tarification_itn] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 6 endpoints beneath base path '/actuator'
+2025-12-25T13:30:01.209+01:00  INFO 8616 --- [tarification_itn] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-25T13:30:01.243+01:00  INFO 8616 --- [tarification_itn] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-12-25T13:30:01.255+01:00  INFO 8616 --- [tarification_itn] [restartedMain] n.u.t.TarificationItnApplication         : Started TarificationItnApplication in 3.166 seconds (process running for 1776.108)
+2025-12-25T13:30:01.259+01:00  INFO 8616 --- [tarification_itn] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-12-25T13:30:01.300+01:00  INFO 8616 --- [tarification_itn] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-25T13:30:01.300+01:00  INFO 8616 --- [tarification_itn] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-25T13:30:01.300+01:00  INFO 8616 --- [tarification_itn] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-12-25T13:30:02.752+01:00  INFO 8616 --- [tarification_itn] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2025-12-25T13:30:03.315+01:00  INFO 8616 --- [tarification_itn] [Thread-27] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-25T13:30:03.315+01:00  INFO 8616 --- [tarification_itn] [Thread-27] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2025-12-25T13:30:03.321+01:00  INFO 8616 --- [tarification_itn] [Thread-27] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2025-12-25T13:30:03.435+01:00  INFO 8616 --- [tarification_itn] [restartedMain] n.u.t.TarificationItnApplication         : Starting TarificationItnApplication using Java 21.0.8 with PID 8616 (C:\Users\OURAHMA\Desktop\tarification_itn\target\classes started by OURAHMA in C:\Users\OURAHMA\Desktop\tarification_itn)
+2025-12-25T13:30:03.435+01:00  INFO 8616 --- [tarification_itn] [restartedMain] n.u.t.TarificationItnApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-12-25T13:30:03.979+01:00  INFO 8616 --- [tarification_itn] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-25T13:30:03.999+01:00  INFO 8616 --- [tarification_itn] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 2 JPA repository interfaces.
+2025-12-25T13:30:04.258+01:00  INFO 8616 --- [tarification_itn] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-12-25T13:30:04.259+01:00  INFO 8616 --- [tarification_itn] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-25T13:30:04.259+01:00  INFO 8616 --- [tarification_itn] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2025-12-25T13:30:04.300+01:00  INFO 8616 --- [tarification_itn] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-25T13:30:04.300+01:00  INFO 8616 --- [tarification_itn] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 862 ms
+2025-12-25T13:30:04.651+01:00  INFO 8616 --- [tarification_itn] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-25T13:30:04.651+01:00  INFO 8616 --- [tarification_itn] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2025-12-25T13:30:04.667+01:00  INFO 8616 --- [tarification_itn] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-5 - Added connection com.mysql.cj.jdbc.ConnectionImpl@576731df
+2025-12-25T13:30:04.667+01:00  INFO 8616 --- [tarification_itn] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2025-12-25T13:30:04.825+01:00  INFO 8616 --- [tarification_itn] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-25T13:30:05.263+01:00  WARN 8616 --- [tarification_itn] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-25T13:30:05.334+01:00  WARN 8616 --- [tarification_itn] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: cbb4c5bf-5e6d-421a-8ab8-8f7d9679f873
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-12-25T13:30:05.339+01:00  INFO 8616 --- [tarification_itn] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-12-25T13:30:05.990+01:00  INFO 8616 --- [tarification_itn] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 6 endpoints beneath base path '/actuator'
+2025-12-25T13:30:06.566+01:00  INFO 8616 --- [tarification_itn] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-25T13:30:06.582+01:00  INFO 8616 --- [tarification_itn] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-12-25T13:30:06.582+01:00  INFO 8616 --- [tarification_itn] [restartedMain] n.u.t.TarificationItnApplication         : Started TarificationItnApplication in 3.183 seconds (process running for 1781.446)
+2025-12-25T13:30:06.582+01:00  INFO 8616 --- [tarification_itn] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-12-25T13:30:10.748+01:00  INFO 8616 --- [tarification_itn] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-25T13:30:10.748+01:00  INFO 8616 --- [tarification_itn] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2025-12-25T13:30:10.753+01:00  INFO 8616 --- [tarification_itn] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
